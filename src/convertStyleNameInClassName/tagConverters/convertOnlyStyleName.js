@@ -1,11 +1,12 @@
-const config = require('../config')
+
+const convertAttributeValue = require('./convertAttributeValue')
 
 module.exports = function convertOnlyStyleName({tag, index, size, content}) {
 
   const newTagWithAttributeName = convertAttributeName(tag)
   const newTagWithAttributeValue = convertAttributeValue(newTagWithAttributeName)
 
-  // console.log(newTag)
+  console.log(newTagWithAttributeName, newTagWithAttributeValue)
 
   // console.log(content, tag)
 
@@ -15,11 +16,4 @@ module.exports = function convertOnlyStyleName({tag, index, size, content}) {
 
 function convertAttributeName(tag) {
   return tag.replace(/styleName/, 'className')
-}
-
-function convertAttributeValue(tag) {
-
-  console.log(tag)
-
-  return tag
 }
