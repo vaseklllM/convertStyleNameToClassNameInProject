@@ -5,7 +5,7 @@ import {txt} from '@/utils'
 
 function Main({ className }) {
   return (
-    <div styleName='body-2'> Main
+    <div styleName='body body-2'> Main
 
     </div>
   );
