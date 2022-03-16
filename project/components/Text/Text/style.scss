@@ -1,0 +1,114 @@
+@import "../../../index.scss";
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+.p10,
+.p12,
+.p14,
+.p16,
+.p18,
+.p12bold,
+.p14bold {
+  margin: 0;
+  white-space: pre-line;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+.span10,
+.span12,
+.span14,
+.span16,
+.span18,
+.span12bold,
+.span14bold,
+.span16bold,
+.span18bold {
+  color: $colorText;
+  white-space: pre-line;
+}
+
+.p10,
+.p12,
+.p14,
+.p16,
+.p18,
+.p12bold,
+.p14bold {
+  color: $colorDarkGrey;
+  word-wrap: break-word;
+}
+
+.h1 {
+  @extend %textH1;
+}
+.h2 {
+  @extend %textH2;
+}
+.h3 {
+  @extend %textH3;
+}
+.h4 {
+  @extend %textH4;
+}
+.h5 {
+  @extend %textH5;
+}
+.h6 {
+  @extend %textH6;
+}
+
+.p10 {
+  @extend %text10;
+}
+.p12 {
+  @extend %text12;
+}
+.p14 {
+  @extend %text14;
+}
+.p16 {
+  @extend %text16;
+}
+.p18 {
+  @extend %text18;
+}
+
+.span10 {
+  @extend %text10;
+}
+.span12 {
+  @extend %text12;
+}
+.span14 {
+  @extend %text14;
+}
+.span16 {
+  @extend %text16;
+}
+.span18 {
+  @extend %text18;
+}
+
+.span12bold,
+.p12bold {
+  @extend %text12bold;
+}
+.span14bold,
+.p14bold {
+  @extend %text14bold;
+}
+.span16bold {
+  @extend %text16bold;
+}
+.span18bold {
+  @extend %text18bold;
+}

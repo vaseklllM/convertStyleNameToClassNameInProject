@@ -1,0 +1,11 @@
+@import "../../../index.scss";
+
+.txt {
+  color: $colorPrimary !important;
+  @extend %text10;
+  text-decoration: none;
+
+  &.disable {
+    cursor: default;
+  }
+}

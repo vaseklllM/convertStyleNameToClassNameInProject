@@ -1,0 +1,16 @@
+@import "../../../index.scss";
+
+.item {
+  background-color: $colorRed;
+  height: 15px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+
+  .text {
+    color: white;
+    padding: 0 5px;
+  }
+}

@@ -1,0 +1,21 @@
+@import "../../../index.scss";
+
+.text {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas: "left line right";
+
+  .left {
+    grid-area: left;
+  }
+
+  .line {
+    grid-area: line;
+    border-bottom: 1px dashed $colorGrey;
+    margin: 0 3px;
+  }
+
+  .right {
+    grid-area: right;
+  }
+}
