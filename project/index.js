@@ -5,8 +5,11 @@ import {txt} from '@/utils'
 
 function Main({ className }) {
   return (
-    <div styleName='body body-2'> Main
-
+    <div styleName='body'>Main
+      <div styleName="body-2 item">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt, quidem.
+      </div>
+      <Name styleName='name' />
     </div>
   );
 }

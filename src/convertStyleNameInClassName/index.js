@@ -26,7 +26,7 @@ function changeStyleNames(content) {
     newContent = changeStyleName(newContent)
   }
 
-  // console.log(newContent)
+  console.log(newContent)
 
   return ''
 }
@@ -63,7 +63,6 @@ function changeStyleNameTagItem(params) {
   switch (true) {
     case isStyleName && !isClassName:
       return convertOnlyStyleName(params)
-
   }
 
   // console.log(params)
