@@ -1,4 +1,4 @@
-const config = require('../config')
+const convertName = require('./convertName')
 
 module.exports = function convertAttributeValue(tag) {
   const attributeInfo = tag.match(/className=("|')([^<]+)("|')/)
@@ -9,9 +9,9 @@ module.exports = function convertAttributeValue(tag) {
   if (names.length === 1) {
     const left = tag.substring(0, attributeInfo.index + 10)
     const right = tag.substring(attributeInfo.index + 10 + namesLength + 2, tag.length)
-    return left + `{${config.CLASSES_NAME}.${names[0]}}` + right
+    return left + convertName(names[0]) + right
   }
-
 
   return tag
 }
+
