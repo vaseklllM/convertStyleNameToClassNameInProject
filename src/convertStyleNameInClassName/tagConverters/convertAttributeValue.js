@@ -4,7 +4,7 @@ module.exports = function convertAttributeValue(tag) {
   const defAttributeInfo = tag.match(/className=("|')([^<]+)("|')/)
   if (defAttributeInfo) {
     const namesLength = defAttributeInfo[2].length
-    const names = defAttributeInfo[2].split(' ')
+    const names = defAttributeInfo[2].trim().split(' ')
 
 
     const left = tag.substring(0, defAttributeInfo.index + 10)
@@ -15,6 +15,7 @@ module.exports = function convertAttributeValue(tag) {
       return `${left}{${convertName(names[0])}}${right}`
     } else if (names.length > 1) {
       const canter = names.map(name => convertName(name))
+      // console.log(names)
       return `${left}{join([${canter.join(', ')}])}${right}`
     }
 

@@ -26,7 +26,7 @@ function changeStyleNames(content) {
     newContent = changeStyleName(newContent)
   }
 
-  console.log(newContent)
+  // console.log(newContent)
 
   return ''
 }
@@ -40,11 +40,6 @@ function changeStyleName(content) {
     size: tags[0][0].length,
     content
   })
-
-  // const newTag = changeStyleNameTagItem(tagContent)
-  // const left = content.substring(0, tagIndex)
-  // const right = content.substring(tagIndex + tagSize, content.length)
-  // return left + newTag + right
 }
 
 function getTags(content) {
