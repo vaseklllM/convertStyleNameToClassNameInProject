@@ -6,7 +6,7 @@ module.exports = function convertOnlyStyleName({tag, index, size, content}) {
   const newTagWithAttributeName = convertAttributeName(tag)
   const newTagWithAttributeValue = convertAttributeValue(newTagWithAttributeName)
 
-  // console.log(newTagWithAttributeValue, content)
+  // console.log(newTagWithAttributeValue)
 
 
   const left = content.substring(0, index)

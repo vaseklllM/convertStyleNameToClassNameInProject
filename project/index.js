@@ -3,7 +3,7 @@ import "./style.scss"
 
 function Main({className}) {
   return (
-    <div styleName='body-2'>Main</div>
+    <div styleName={txt.join(['body ', " item", text === "lorem" && "loading " ])}>Main</div>
   );
 }
 
