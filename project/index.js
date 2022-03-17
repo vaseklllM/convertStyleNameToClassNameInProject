@@ -1,9 +1,9 @@
 import React from 'react';
 import "./style.scss"
 
-function Main() {
+function Main({text}) {
   return (
-    <div styleName={txt.join(['body ', " item", text === "lorem" && "loading" ])}>Main</div>
+    <div styleName={txt.join(['body ', " item", text === "lorem" && "loading"])}>Main</div>
   );
 }
 
