@@ -5,7 +5,7 @@ const convertStyleNameInClassName = require('./convertStyleNameInClassName')
 const TEST_FOLDER_PATH = {
   path: './project/',
   outputPath: 'projectNew',
-  // exclude: [/components/]
+  exclude: [/components/, /Name/]
 }
 // const VSEVMESTE_FOLDER_PATH = {path: '../vv_new_front/src'}
 

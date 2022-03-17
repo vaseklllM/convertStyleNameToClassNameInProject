@@ -10,7 +10,6 @@ module.exports = function convertAttributeValue(tag) {
     const left = tag.substring(0, defAttributeInfo.index + 10)
     const right = tag.substring(defAttributeInfo.index + 10 + namesLength + 2, tag.length)
 
-
     if (names.length === 1) {
       return `${left}{${convertName(names[0])}}${right}`
     } else if (names.length > 1) {
@@ -21,10 +20,11 @@ module.exports = function convertAttributeValue(tag) {
     return tag
   }
 
+  /** txt.join */
   const objAttributeInfo = tag.match(/className={txt.join\(\[([^<]+)\]\)}/)
   if (objAttributeInfo) {
     const namesLength = objAttributeInfo[1].length
-    const names = objAttributeInfo[1].split(',').map(i => i.trim())
+    const names = objAttributeInfo[1].split(',').map(i => i.trim()).filter(i => i)
 
     const center = names.map(name => convertName(name))
     const left = tag.substring(0, objAttributeInfo.index + 10)
