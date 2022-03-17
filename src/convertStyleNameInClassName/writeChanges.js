@@ -1,13 +1,11 @@
 const fs = require('fs')
 
-const testPath = 'project\\indexFixed.js'
 
-module.exports = function writeChanges({path, content}) {
+module.exports = function writeChanges({content, outputPath}) {
 
   try {
-    fs.writeFileSync(testPath, content)
-    //file written successfully
+    fs.writeFileSync(outputPath, content)
   } catch (err) {
-    console.error(err)
+    console.log(err)
   }
 }

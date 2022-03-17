@@ -2,7 +2,11 @@ const dirTree = require("directory-tree");
 const fs = require('fs');
 const convertStyleNameInClassName = require('./convertStyleNameInClassName')
 
-const TEST_FOLDER_PATH = {path: './project/', exclude: [/components/, /Name/, /indexFixed/]}
+const TEST_FOLDER_PATH = {
+  path: './project/',
+  outputPath: 'projectNew',
+  exclude: [/components/, /Name/, /indexFixed/]
+}
 // const VSEVMESTE_FOLDER_PATH = {path: '../vv_new_front/src'}
 
 
@@ -20,7 +24,13 @@ function openFiles({folder, types = ['js'], callback}) {
     if (!child.children) {
       const type = child.name.split('.').at(-1);
       if (types.includes(type)) {
-        callback?.(child.path)
+        callback?.(
+          child.path,
+          convertOutputPath({
+            path: child.path,
+            outputPath: folder.outputPath
+          })
+        )
       }
     } else {
       openFiles({folder: {path: child.path, exclude: folder.exclude}, types, callback})
@@ -29,13 +39,17 @@ function openFiles({folder, types = ['js'], callback}) {
 }
 
 
-function getFileContent(path) {
+function getFileContent(path, outputPath) {
   try {
     const data = fs.readFileSync(path, 'utf8')
-    convertStyleNameInClassName({path, content: data})
+    convertStyleNameInClassName({path, content: data, outputPath})
   } catch (err) {
     console.error(err)
   }
 }
 
-
+function convertOutputPath({path, outputPath}) {
+  const pathArr = path.split('\\')
+  pathArr[0] = outputPath
+  return pathArr.join('\\')
+}
