@@ -1,5 +1,6 @@
 import React from 'react';
 import "./style.scss"
+import "../../main.scss"
 
 function Main({text}) {
   return (
