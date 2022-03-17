@@ -5,7 +5,7 @@ const convertStyleNameInClassName = require('./convertStyleNameInClassName')
 const TEST_FOLDER_PATH = {
   path: './project/',
   outputPath: 'projectNew',
-  exclude: [/components/]
+  // exclude: [/components/]
 }
 // const VSEVMESTE_FOLDER_PATH = {path: '../vv_new_front/src'}
 
@@ -17,7 +17,7 @@ openFiles({
 })
 
 
-function openFiles({folder, types = ['js'], callback}) {
+function openFiles({folder, types = [], callback}) {
   const files = dirTree(folder.path, {exclude: folder.exclude});
 
   files.children.forEach((child) => {

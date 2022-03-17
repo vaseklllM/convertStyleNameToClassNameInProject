@@ -1,6 +1,7 @@
 const fs = require('fs');
 const getScssFilePaths = require('./getScssFilePaths')
 const config = require('../config')
+const writeContent = require('../writeContent')
 
 module.exports = function renameStyleScssFile({path, content, outputPath}) {
   const isScss = content.search(/.scss/) !== -1
@@ -21,12 +22,17 @@ module.exports = function renameStyleScssFile({path, content, outputPath}) {
   })
 
   scssFilesContents.map(async (i) => {
-    try {
-      const path = `${folderOutputPath}\\${config.getScssFileName(i.fileName)}`
-      fs.writeFileSync(path, i.content)
-    } catch (err) {
-      console.error(err)
-    }
+    writeContent({
+      path: `${folderOutputPath}\\${config.getScssFileName(i.fileName)}`,
+      content: i.content
+    })
+
+    // try {
+    //   const path = `${folderOutputPath}\\${config.getScssFileName(i.fileName)}`
+    //   fs.writeFileSync(path, i.content)
+    // } catch (err) {
+    //   console.error(err)
+    // }
   })
 }
 

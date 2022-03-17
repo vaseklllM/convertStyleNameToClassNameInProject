@@ -5,11 +5,12 @@ module.exports = function writeContent({path, content}) {
     const folderPath = getFolderPath(path)
 
     if (!fs.existsSync(folderPath)){
-      fs.mkdirSync(folderPath);
+      fs.mkdirSync(folderPath, {recursive: true});
     }
 
     fs.writeFileSync(path, content)
 
+    console.log(`--- ${path} ✓`)
   } catch (err) {
     console.log(err)
   }
