@@ -12,7 +12,8 @@ function getNamesByIndexes({index, content}) {
   const pathLeftPosition = line.match(/("|')/).index
   const filePath = line.slice(pathLeftPosition + 1)
   const filePathFull = filePath + '.scss'
-  const fileName = filePathFull.split('/').at(-1)
+  const pathArr = filePathFull.split('/')
+  const fileName = pathArr.at(-1)
 
-  return { path: filePathFull, fileName }
+  return {path: filePathFull, fileName, isNotAnother: pathArr.length === 2 && pathArr[0] === '.'}
 }

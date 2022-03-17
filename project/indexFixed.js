@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from "./styleFixed.module.scss"
+import "../main.scss"
 
 function Main({text}) {
   return (

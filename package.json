@@ -5,7 +5,7 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "convertNodemon": "nodemon --watch src index.js",
+    "convertNodemon": "nodemon --watch src index.js --watch ./project/index.js",
     "convert": "node ./src/index.js"
   },
   "author": "",

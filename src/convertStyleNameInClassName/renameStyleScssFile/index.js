@@ -6,8 +6,11 @@ module.exports = function renameStyleScssFile({path, content}) {
 
   if (!isScss) return
 
-  const scssPaths = getScssFilePaths({path, content})
+  const scssPaths = getScssFilePaths({path, content}).filter(i => i.isNotAnother)
 
-  // console.log(isScss)
+  console.log(scssPaths)
+
+  // const scssContent =
+
 
 }
