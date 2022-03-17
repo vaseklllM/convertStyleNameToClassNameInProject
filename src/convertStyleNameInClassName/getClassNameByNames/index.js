@@ -1,6 +1,18 @@
 const config = require("../config");
 
-module.exports = function convertName(name) {
+module.exports = function getClassNameByNames(names) {
+  const body = names.map(name => convertName(name)).join(', ')
+
+  if (names.length === 1) {
+    return `{${body}}`
+  } else if (names.length > 1) {
+    return `{join([${body}])}`
+  }
+  throw new Error('Неправильный массив атрибутов')
+}
+
+
+function convertName(name) {
   if (name.includes('\'') || name.includes('"')) {
     return convertTxtJoinName(name)
   }

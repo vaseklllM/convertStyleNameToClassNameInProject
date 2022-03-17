@@ -4,10 +4,12 @@ import Name from "./Name";
 
 function Main({text}) {
   return (
-    <div className={classes.body_wrapper}>
-      <div className={join([classes.body, classes.item, text === 'lorem' && classes["loading-test"]])}>
+    <div className={join([classes.body_wrapper, classes.test1])}>
+      <div
+        className={join([classes.body, classes.item, text === 'lorem' && classes["loading-test"]])}
+      >
         Main
-        <p style={{}} >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, veritatis?</p>
+        <p style={{}}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, veritatis?</p>
       </div>
       <Name className={classes.name}/>
     </div>
