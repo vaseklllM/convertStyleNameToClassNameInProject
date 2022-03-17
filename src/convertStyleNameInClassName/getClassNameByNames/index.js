@@ -3,6 +3,7 @@ const config = require("../config");
 module.exports = function getClassNameByNames(names) {
   const body = names.map(name => convertName(name)).join(', ')
 
+
   if (names.length === 1) {
     return `{${body}}`
   } else if (names.length > 1) {
@@ -13,8 +14,12 @@ module.exports = function getClassNameByNames(names) {
 
 
 function convertName(name) {
-  if (name.includes('\'') || name.includes('"')) {
+
+
+  if (["&&", "||"].some(i => name.includes(i))) {
     return convertTxtJoinName(name)
+  } else if (['\'', '\"'].some(i => name.includes(i))) {
+    return getName(name.replaceAll(/("|')/g, ''))
   }
 
   return getName(name)
@@ -44,7 +49,6 @@ function getNameInfoFromTxtJoin(name, symbol) {
   return {
     className,
     index: left.length,
-
   }
 }
 
