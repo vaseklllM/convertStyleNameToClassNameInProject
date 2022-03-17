@@ -3,8 +3,15 @@ import "./style.scss"
 import "../main.scss"
 
 function Main({text}) {
+  const isActive = true
+
   return (
-    <div styleName={txt.join(['body', "item", text === "lorem-2" && "loading-2"])}>Main</div>
+    <div styleName='body_wrapper' >
+      <div styleName={txt.join(['body', "item", text === "lorem" && isActive && "loading"])}>
+        Main
+         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, veritatis?</p>
+      </div>
+    </div>
   );
 }
 
