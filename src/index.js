@@ -2,7 +2,7 @@ const dirTree = require("directory-tree");
 const fs = require('fs');
 const convertStyleNameInClassName = require('./convertStyleNameInClassName')
 
-const TEST_FOLDER_PATH = {path: './project/', exclude: [/components/, /Name/]}
+const TEST_FOLDER_PATH = {path: './project/', exclude: [/components/, /Name/, /indexFixed/]}
 // const VSEVMESTE_FOLDER_PATH = {path: '../vv_new_front/src'}
 
 
