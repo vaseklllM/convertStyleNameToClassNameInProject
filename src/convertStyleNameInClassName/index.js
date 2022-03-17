@@ -2,11 +2,13 @@ const config = require('./config')
 const convertOnlyStyleName = require('./tagConverters/convertOnlyStyleName')
 const writeChanges = require('./writeChanges')
 const renameStyleScssFile = require('./renameStyleScssFile')
+const copyFile = require('./copyFile')
 
 module.exports = function convertStyleNameInClassName({path, content, outputPath}) {
   const isScss = content.search('.scss') !== -1
 
   if (!isScss) {
+    copyFile({from: path, to: outputPath})
     return
   }
 
@@ -15,10 +17,6 @@ module.exports = function convertStyleNameInClassName({path, content, outputPath
 
   writeChanges({content: fixedStyleName, outputPath})
   renameStyleScssFile({content, path, outputPath})
-
-  // console.log(outputPath)
-
-  // console.log(fixedStyleName)
 }
 
 function changeImport(content) {

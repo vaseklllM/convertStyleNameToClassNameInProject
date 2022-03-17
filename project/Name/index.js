@@ -2,7 +2,7 @@ import React from 'react';
 
 function Name() {
   return (
-    <div>Name</div>
+    <div styleName='company'>Name</div>
   );
 }
 

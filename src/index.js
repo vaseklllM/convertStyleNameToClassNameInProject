@@ -5,7 +5,7 @@ const convertStyleNameInClassName = require('./convertStyleNameInClassName')
 const TEST_FOLDER_PATH = {
   path: './project/',
   outputPath: 'projectNew',
-  exclude: [/components/, /Name/, /indexFixed/]
+  exclude: [/components/]
 }
 // const VSEVMESTE_FOLDER_PATH = {path: '../vv_new_front/src'}
 
@@ -33,7 +33,17 @@ function openFiles({folder, types = ['js'], callback}) {
         )
       }
     } else {
-      openFiles({folder: {path: child.path, exclude: folder.exclude}, types, callback})
+      openFiles(
+        {
+          folder:
+            {
+              path: child.path,
+              exclude: folder.exclude,
+              outputPath: folder.outputPath
+            },
+          types,
+          callback
+        })
     }
   })
 }
