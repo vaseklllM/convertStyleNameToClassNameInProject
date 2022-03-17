@@ -1,10 +1,15 @@
-.body {
-  .item {
-    display: flex;
-  }
+.body_wrapper {
+  .body {
+    .item {
+      display: flex;
+    }
 
+    .loading {
+      opacity: 0.5;
+    }
 
-  .loading {
-    opacity: 0.5;
+    .name {
+      font-size: 20px;
+    }
   }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import './style.scss'
+import classes from "./style.module.scss"
 
 function Name({ className }) {
   return (

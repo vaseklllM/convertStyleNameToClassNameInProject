@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from "./style.module.scss"
-import "../main.scss"
+import Name from "./Name";
 
 function Main({text}) {
   const isActive = true
@@ -11,6 +11,7 @@ function Main({text}) {
         Main
          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, veritatis?</p>
       </div>
+      <Name className={classes.name} />
     </div>
   );
 }
