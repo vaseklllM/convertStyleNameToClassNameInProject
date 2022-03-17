@@ -10,7 +10,7 @@ module.exports = function convertStyleNameInClassName({path, content}) {
 
   const fixedImport = changeImport(content)
   const fixedStyleName = changeStyleNames(fixedImport)
-  // console.log(fixedStyleName)
+  console.log(fixedStyleName)
 }
 
 function changeImport(content) {
