@@ -19,7 +19,10 @@ module.exports = function convertStyleNameInClassName({path, content}) {
 }
 
 function changeImport(content) {
-  return content.replace(/import ("|').\/style.scss("|')/, `import ${config.CLASSES_NAME} from "./${config.SCSS_FILE_NAME}"`)
+  return content.replace(
+    /import ("|').\/style.scss("|')/,
+    `import ${config.CLASSES_NAME} from "./${config.getScssFileName('style')}"`
+  )
 }
 
 function changeStyleNames(content) {
