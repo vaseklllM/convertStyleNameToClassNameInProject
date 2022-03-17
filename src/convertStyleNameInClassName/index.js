@@ -15,6 +15,7 @@ module.exports = function convertStyleNameInClassName({path, content}) {
 
   writeChanges({content: fixedStyleName, path})
   renameStyleScssFile({content, path})
+
   // console.log(fixedStyleName)
 }
 
