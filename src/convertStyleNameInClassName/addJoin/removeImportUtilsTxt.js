@@ -6,16 +6,22 @@ module.exports = function removeImportUtilsTxt(content) {
 
   const lineInfo = getLineInfoByIndex({content, index})
 
-  const modules = lineInfo.body.match(/\{([^<]+)\}/)[1]
+  const modulesMatch = lineInfo.body.match(/\{([^<]+)\}/)
+  const modulesLength = modulesMatch[0].length
+
+  const modules = modulesMatch[1]
     .trim()
     .split(',')
     .filter(i => i)
+    .map(i => i.trim())
 
   if (modules.length === 1) {
     return removeLineByIndex({content, index})
   }
 
-  console.log(modules)
+  const left = content.substring(0, lineInfo.startIndex + modulesMatch.index)
+  const right = content.substring(lineInfo.startIndex + modulesMatch.index + modulesLength)
+  const center = `{ ${modules.filter(i => i !== 'txt').join(', ')} }`
 
-  return content
+  return `${left}${center}${right}`
 }
