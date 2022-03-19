@@ -10,7 +10,7 @@ function Main({text}) {
   return (
     <div className={join([classes.body_wrapper, classes.test1])}>
       <div
-        className={join([classes.body, isItem ? classes.item : Array.isArray([]) ? classes.name_1 : classes.name_2, text === 'lorem' && classes["loading-test"]])}
+        className={isItem ? classes.item : Array.isArray([]) && classes.name_1}
       >
         Main
         <p style={{}}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, veritatis?</p>

@@ -11,9 +11,7 @@ function Main({text}) {
     <div styleName='body_wrapper test1'>
       <div
         styleName={txt.join([
-          'body',
-          isItem ? "item" : Array.isArray([]) ? 'name_1' : 'name_2',
-          text === 'lorem' && "loading-test",
+          isItem ? "item" : Array.isArray([]) && 'name_1',
         ])}
       >
         Main
