@@ -1,7 +1,7 @@
 import React from 'react';
 import "./style.scss"
 import Name from "./Name";
-import {txt} from '@/utils'
+import {txt, obj} from '@/utils'
 
 
 function Main({text}) {

@@ -7,7 +7,6 @@ module.exports = function getLineInfoByIndex({content, index}) {
   const body = content.substring(startIndex, endIndex)
   const length = body.length
 
-
   return {
     startIndex,
     endIndex,
