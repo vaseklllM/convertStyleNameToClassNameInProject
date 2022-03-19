@@ -71,9 +71,6 @@ function getRuleClasses({name, ruleIndex}) {
   const left = body.substring(0, newSeparatorIndex).trim()
   const right = body.substring(newSeparatorIndex + 1, name.length).trim()
 
-  // console.log({
-  //   newSeparatorIndex
-  // })
 
   return [
     left,
