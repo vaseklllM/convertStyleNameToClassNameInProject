@@ -11,6 +11,7 @@ module.exports = function getLineInfoByIndex({content, index}) {
   return {
     startIndex,
     endIndex,
-    length
+    length,
+    body
   }
 }

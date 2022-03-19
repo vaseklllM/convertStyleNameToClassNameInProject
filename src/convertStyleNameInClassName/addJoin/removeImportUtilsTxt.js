@@ -5,7 +5,7 @@ module.exports = function removeImportUtilsTxt(content) {
 
   const lineInfo = getLineInfoByIndex({content, index})
 
-  // console.log(index)
+  console.log(lineInfo)
 
   return content
 }

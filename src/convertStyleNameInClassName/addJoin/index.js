@@ -1,4 +1,5 @@
 const removeImportUtilsTxt = require('./removeImportUtilsTxt')
+const getLineInfoByIndex = require("../utils/getLineInfoByIndex");
 
 
 module.exports = function addJoin(content) {
@@ -25,6 +26,7 @@ function connectJoinToContent(content) {
   const left = content.substring(0, index)
   const right = content.substring(index, content.length)
 
+
   const center = '\r\nimport join from "@/utils/join"'
 
   return `${left}${center}${right}`
@@ -32,11 +34,10 @@ function connectJoinToContent(content) {
 
 function getImportIndex(content) {
   const lastImport = [...content.matchAll(/import/g)]
-    .map(i => ({index: i.index, length: i[0].length}))
+    .map(i => ({index: i.index}))
     .at(-1)
 
-  const right = content.substring(lastImport.index, content.length)
-  const importLineLength = right.match(/\r\n/).index
+  const lineInfo = getLineInfoByIndex({content, index: lastImport.index})
 
-  return lastImport.index + importLineLength
+  return lineInfo.endIndex
 }
