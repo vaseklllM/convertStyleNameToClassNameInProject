@@ -1,5 +1,5 @@
 const removeImportUtilsTxt = require('./removeImportUtilsTxt')
-const getLineInfoByIndex = require("../utils/getLineInfoByIndex");
+const getLineInfoByIndex = require("../../utils/getLineInfoByIndex");
 
 
 module.exports = function addJoin(content) {
