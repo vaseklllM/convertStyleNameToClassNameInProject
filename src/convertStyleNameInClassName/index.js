@@ -2,6 +2,7 @@ const config = require('./config')
 const convertOnlyStyleName = require('./tagConverters/convertOnlyStyleName')
 const renameStyleScssFile = require('./renameStyleScssFile')
 const writeContent = require('./writeContent')
+const addJoin = require('./addJoin')
 
 module.exports = function convertStyleNameInClassName({path, content, outputPath}) {
   const isScss = content.search('.scss') !== -1
@@ -12,8 +13,9 @@ module.exports = function convertStyleNameInClassName({path, content, outputPath
 
   const fixedImport = changeImport(content)
   const fixedStyleName = changeStyleNames(fixedImport)
+  const addedJoin = addJoin(fixedStyleName)
 
-  writeContent({content: fixedStyleName, path: outputPath})
+  writeContent({content: addedJoin, path: outputPath})
   renameStyleScssFile({content, path, outputPath})
 }
 
