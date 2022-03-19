@@ -11,11 +11,12 @@ function Main({text}) {
     <div styleName='body_wrapper test1'>
       <div
         styleName={txt.join([
-          isItem ? "item" : Array.isArray([]) && 'name_1',
+          'body',
+          isItem ? "n1" : 'n2',
         ])}
       >
         Main
-        <p style={{}}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, veritatis?</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, veritatis?</p>
       </div>
       <Name styleName='name'/>
     </div>
