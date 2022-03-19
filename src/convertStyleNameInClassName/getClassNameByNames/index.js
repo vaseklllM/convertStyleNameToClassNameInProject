@@ -1,13 +1,18 @@
 const config = require("../config");
 
+
 module.exports = function getClassNameByNames(names) {
-  const body = names.map(name => convertName(name)).join(', ')
+
+  const classes = names
+    .filter(i => i.type === 'styleName')
+    .map(name => convertName(name.content))
+    .join(', ')
 
 
   if (names.length === 1) {
-    return `{${body}}`
+    return `{${classes}}`
   } else if (names.length > 1) {
-    return `{join([${body}])}`
+    return `{join([${classes}])}`
   }
   throw new Error('Неправильный массив атрибутов')
 }
