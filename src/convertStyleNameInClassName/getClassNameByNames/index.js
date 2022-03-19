@@ -1,5 +1,4 @@
-const config = require("../config");
-
+const {convertStyleNameToClassName, convertRequestStyleName} = require('./convertStyleNameToClassName')
 
 module.exports = function getClassNameByNames(names) {
 
@@ -19,15 +18,17 @@ module.exports = function getClassNameByNames(names) {
 
 
 function convertName(name) {
+  const isRequest = name.match(/\?([^<]+)\:/)
 
-
-  if (["&&", "||"].some(i => name.includes(i))) {
+  if (isRequest) {
+    return convertRequestStyleName(name)
+  } else if (["&&", "||"].some(i => name.includes(i))) {
     return convertTxtJoinName(name)
   } else if (['\'', '\"'].some(i => name.includes(i))) {
-    return getName(name.replaceAll(/("|')/g, ''))
+    return convertStyleNameToClassName(name.replaceAll(/("|')/g, ''))
   }
 
-  return getName(name)
+  return convertStyleNameToClassName(name)
 }
 
 function convertTxtJoinName(name) {
@@ -36,7 +37,7 @@ function convertTxtJoinName(name) {
 
   const left = name.substring(0, index)
 
-  return left + getName(className)
+  return left + convertStyleNameToClassName(className)
 }
 
 function getNameInfoFromTxtJoin(name, symbol) {
@@ -52,15 +53,6 @@ function getNameInfoFromTxtJoin(name, symbol) {
 
 
   return {
-    className,
-    index: left.length,
+    className, index: left.length,
   }
-}
-
-function getName(name) {
-  if (name.includes('-')) {
-    return `${config.CLASSES_NAME}["${name}"]`
-  }
-
-  return `${config.CLASSES_NAME}.${name}`
 }
