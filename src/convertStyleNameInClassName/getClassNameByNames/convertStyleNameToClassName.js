@@ -49,11 +49,35 @@ function convertRequestStyleName(name) {
 }
 
 function getRuleClasses({name, ruleIndex}) {
-  const body = name.substring(ruleIndex + 1, name.length)
+  const body = name.substring(ruleIndex + 1, name.length).trim()
+
+  const bodyRequestIndex = body.search(/\?/)
   const bodySeparatorIndex = body.search(/\:/)
+
+  if (bodyRequestIndex > bodySeparatorIndex) {
+
+
+    const left = body.substring(0, bodySeparatorIndex).trim()
+    const right = body.substring(bodySeparatorIndex + 1, name.length).trim()
+
+
+    return [
+      left,
+      right
+    ]
+  }
+
+  const newSeparatorIndex = [...body.matchAll(/\:/g)].at(-1).index
+  const left = body.substring(0, newSeparatorIndex).trim()
+  const right = body.substring(newSeparatorIndex + 1, name.length).trim()
+
+  // console.log({
+  //   newSeparatorIndex
+  // })
+
   return [
-    body.substring(0, bodySeparatorIndex).trim(),
-    body.substring(bodySeparatorIndex + 1, name.length).trim()
+    left,
+    right
   ]
 }
 

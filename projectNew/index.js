@@ -10,7 +10,7 @@ function Main({text}) {
   return (
     <div className={join([classes.body_wrapper, classes.test1])}>
       <div
-        className={join([classes.body, isItem ? classes.n1 : classes.n2])}
+        className={join([classes.body, isItem ? 1 ? 2 ? classes.c1 : classes.c2 : classes.b2 : classes.a2])}
       >
         Main
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, veritatis?</p>

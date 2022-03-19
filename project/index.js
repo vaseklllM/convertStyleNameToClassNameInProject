@@ -12,7 +12,7 @@ function Main({text}) {
       <div
         styleName={txt.join([
           'body',
-          isItem ? "n1" : 'n2',
+          isItem ? 1 ? 2 ? "c1" : "c2" : "b2" : "a2"
         ])}
       >
         Main
