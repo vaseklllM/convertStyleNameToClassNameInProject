@@ -1,21 +1,15 @@
 import React from 'react';
 import classes from "./style.module.scss"
 import Name from "./Name";
-import join from "@/utils/join"
+import {txt} from '@/utils'
 
 
-function Main({text}) {
+function Main({text, className}) {
   const isItem = false
 
   return (
-    <div className={classes.body}>
-      <div
-        className={join([classes.body, isItem ? classes.a1 : 2 ? classes.b1 : classes.b2])}
-      >
-        Main
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, veritatis?</p>
-      </div>
-      <Name className={classes.name}/>
+    <div styleName='body' className={className}>
+
     </div>
   );
 }

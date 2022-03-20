@@ -2,15 +2,17 @@ const convertAttributeValue = require('./convertAttributeValue')
 
 module.exports = function convertOnlyStyleName({tag, index, size, content}) {
 
-  const newTagWithAttributeName = convertAttributeName(tag)
-  const newTagWithAttributeValue = convertAttributeValue(newTagWithAttributeName)
+  let newTag = tag
+
+  newTag = convertAttributeName(newTag)
+  newTag = convertAttributeValue(newTag)
 
 
   const left = content.substring(0, index)
   const right = content.substring(index + size, content.length)
 
 
-  return `${left}${newTagWithAttributeValue}${right}`
+  return `${left}${newTag}${right}`
 }
 
 

@@ -3,6 +3,7 @@ const renameStyleScssFile = require('./renameStyleScssFile')
 const writeContent = require('./writeContent')
 const addJoin = require('./addJoin')
 const convertImportScss = require('./convertImportScss')
+const convertHybridStyleNameAndClassName = require('./tagConverters/convertHybridStyleNameAndClassName')
 
 module.exports = function convertStyleNameInClassName({path, content, outputPath}) {
   const isScss = content.search('.scss') !== -1
@@ -55,12 +56,16 @@ function changeStyleNameTagItem(params) {
   const isStyleName = params.tag.search(/styleName=/) !== -1
   const isClassName = params.tag.search(/className=/) !== -1
 
+  // console.log(isStyleName, isClassName, params.tag)
+
   switch (true) {
     case isStyleName && !isClassName:
       return convertOnlyStyleName(params)
+
+    case isStyleName && isClassName:
+      return convertHybridStyleNameAndClassName(params)
   }
 
-  console.log(params)
 
   return params.content
 }
