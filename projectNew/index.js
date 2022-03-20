@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from "./style.scss"
+import classes from "./style.module.scss"
 import Name from "./Name";
 import join from "@/utils/join"
 

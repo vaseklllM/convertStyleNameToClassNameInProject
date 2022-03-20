@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from "./style.scss"
+import "./style.scss"
 import Name from "./Name";
 import {txt} from '@/utils'
 
