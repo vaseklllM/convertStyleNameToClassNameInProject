@@ -8,11 +8,11 @@ function Main({text}) {
   const isItem = false
 
   return (
-    <div styleName='body_wrapper test1'>
+    <div styleName={isItem && 'body'}>
       <div
         styleName={txt.join([
           'body',
-          isItem ? "a1" : "a2"
+          isItem ? "a1" : 2 ? 'b_1' : "b-2"
         ])}
       >
         Main

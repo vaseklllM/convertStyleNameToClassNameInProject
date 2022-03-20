@@ -8,9 +8,9 @@ function Main({text}) {
   const isItem = false
 
   return (
-    <div className={join([classes.body_wrapper, classes.test1])}>
+    <div className={isItem && classes.body}>
       <div
-        className={join([classes.body, isItem ? classes.a1 : classes.a2])}
+        className={join([classes.body, isItem ? classes.a1 : 2 ? classes.b_1 : classes["b-2"]])}
       >
         Main
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, veritatis?</p>

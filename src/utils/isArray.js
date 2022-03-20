@@ -1,3 +1,3 @@
 module.exports = function isArray(arr) {
-  return Array.isArray(arr) && all.length !== 0
+  return Array.isArray(arr) && arr.length !== 0
 }
