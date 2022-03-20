@@ -1,7 +1,11 @@
 const config = require("../config");
+const getLineInfoByIndex = require('../../utils/getLineInfoByIndex')
 
 module.exports = function convertImportScss(content) {
-  console.log(content)
+  const lineIndex = content.search(/\.\/style\.scss/)
+
+  const lineInfo = getLineInfoByIndex({index: lineIndex, content})
+  console.log(lineInfo)
 
 
   return content.replace(
