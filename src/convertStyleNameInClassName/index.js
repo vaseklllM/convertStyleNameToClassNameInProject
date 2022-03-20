@@ -3,6 +3,7 @@ const convertOnlyStyleName = require('./tagConverters/convertOnlyStyleName')
 const renameStyleScssFile = require('./renameStyleScssFile')
 const writeContent = require('./writeContent')
 const addJoin = require('./addJoin')
+const convertImportScss = require('./convertImportScss')
 
 module.exports = function convertStyleNameInClassName({path, content, outputPath}) {
   const isScss = content.search('.scss') !== -1
@@ -11,19 +12,12 @@ module.exports = function convertStyleNameInClassName({path, content, outputPath
     return
   }
 
-  const fixedImport = changeImport(content)
+  const fixedImport = convertImportScss(content)
   const fixedStyleName = changeStyleNames(fixedImport)
   const addedJoin = addJoin(fixedStyleName)
 
   writeContent({content: addedJoin, path: outputPath})
   renameStyleScssFile({content, path, outputPath})
-}
-
-function changeImport(content) {
-  return content.replace(
-    /import ("|').\/style.scss("|')/,
-    `import ${config.CLASSES_NAME} from "./${config.getScssFileName('style')}"`
-  )
 }
 
 function changeStyleNames(content) {
@@ -60,18 +54,13 @@ function changeStyleNameTagItem(params) {
   const isStyleName = params.tag.search(/styleName=/) !== -1
   const isClassName = params.tag.search(/className=/) !== -1
 
-  // console.log(isStyleName, isClassName, params.tag)
-
   switch (true) {
     case isStyleName && !isClassName:
       return convertOnlyStyleName(params)
   }
 
-  // console.log(params)
+  console.log(params)
 
-  // console.log(content, content.search(/styleName/))
-
-  // return '<div className={classes.body}>'
   return params.content
 }
 
