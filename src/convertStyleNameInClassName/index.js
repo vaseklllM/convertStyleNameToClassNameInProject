@@ -1,4 +1,3 @@
-const config = require('./config')
 const convertOnlyStyleName = require('./tagConverters/convertOnlyStyleName')
 const renameStyleScssFile = require('./renameStyleScssFile')
 const writeContent = require('./writeContent')
@@ -12,11 +11,13 @@ module.exports = function convertStyleNameInClassName({path, content, outputPath
     return
   }
 
-  const fixedImport = convertImportScss(content)
-  const fixedStyleName = changeStyleNames(fixedImport)
-  const addedJoin = addJoin(fixedStyleName)
+  let newContent = content
 
-  writeContent({content: addedJoin, path: outputPath})
+  newContent = convertImportScss(newContent)
+  newContent = changeStyleNames(newContent)
+  newContent = addJoin(newContent)
+
+  writeContent({content: newContent, path: outputPath})
   renameStyleScssFile({content, path, outputPath})
 }
 
