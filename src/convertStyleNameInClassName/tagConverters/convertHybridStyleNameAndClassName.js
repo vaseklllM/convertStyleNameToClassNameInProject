@@ -2,7 +2,7 @@ const getTagArgumentInfo = require('../../utils/getTagArgumentInfo')
 const removeArgumentFromTag = require('../../utils/removeArgumentFromTag')
 const getClassNameParamsFromArgument = require('../../utils/getClassNameParamsFromArgument')
 const getClassNameByNames = require('../getClassNameByNames')
-const formatTag = require('../../utils/formatTag')
+const addArgumentToTag = require('../../utils/addArgumentToTag')
 
 module.exports = function convertHybridStyleNameAndClassName({tag, index, size, content}) {
   const styleNameInfo = getTagArgumentInfo({tag, argument: 'styleName'})
@@ -15,19 +15,11 @@ module.exports = function convertHybridStyleNameAndClassName({tag, index, size, 
     .map(i => ({content: i, type: 'className'}))
 
   const className = getClassNameByNames([...classNamesArr, ...styleNamesArr])
+  const newArgument = `className=${className}`
 
   let newTag = removeArgumentFromTag({tag, argument: 'styleName'})
   newTag = removeArgumentFromTag({tag: newTag, argument: 'className'})
-  newTag = formatTag({tag: newTag})
-  // console.log(newTag)
+  newTag = addArgumentToTag({tag: newTag, argument: newArgument})
 
-  // const left = content.substring(0, index)
-  // const right = content.substring()
-
-
-  // console.log(styleNames)
-
-  // const newContent = content.replace(tag, newTag)
-
-  return content
+  return content.replace(tag, newTag)
 }

@@ -9,7 +9,9 @@ function Main({text, className}) {
 
   return (
     <div styleName={txt.join(['body', isActive ? 'active' : 'no-active'])}
-         className={txt.join([className, isActive && classes.name])}>
+         className={txt.join([className, isActive && classes.name])}
+         isActive={false}
+         aria-required={'asf'}>
 
     </div>
   );
