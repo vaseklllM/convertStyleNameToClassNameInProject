@@ -9,7 +9,8 @@ function Main({text, className}) {
   const isActive = typeof text === "string"
 
   return (
-    <div styleName={txt.join(['body', isActive ? 'active': 'no-active'])} className={className}>
+    <div styleName={txt.join(['body', isActive ? 'active' : 'no-active'])}
+         className={txt.join([className, isActive && classes.name])}>
 
     </div>
   );

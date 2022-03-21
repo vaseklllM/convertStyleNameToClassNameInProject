@@ -5,18 +5,18 @@ const {
 } = require('./convertStyleNameToClassName')
 
 module.exports = function getClassNameByNames(names) {
-  // const classNames = names.filter(i => i.type === 'className')
+  let classNames = names.filter(i => i.type === 'className').map(i => i.content)
 
-  const classes = names
+  const styleNames = names
     .filter(i => i.type === 'styleName')
     .map(name => convertName(name.content))
-    .join(', ')
 
+  classNames = [...classNames, ...styleNames].join(', ')
 
   if (names.length === 1) {
-    return `{${classes}}`
+    return `{${classNames}}`
   } else if (names.length > 1) {
-    return `{join([${classes}])}`
+    return `{join([${classNames}])}`
   }
   throw new Error('Неправильный массив атрибутов')
 }
