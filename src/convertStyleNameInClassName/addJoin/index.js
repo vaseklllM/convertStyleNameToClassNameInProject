@@ -3,9 +3,12 @@ const getLineInfoByIndex = require("../../utils/getLineInfoByIndex");
 
 
 module.exports = function addJoin(content) {
-  const isJoin = content.search(/join\(\[/) !== -1
+  const isJoinUsages = content.search(/join\(\[/) !== -1
+  const isImportJoin = content.search(/import join from "@\/utils\/join"/) !== -1
 
-  if (!isJoin) return content
+  console.log(isImportJoin, isJoinUsages)
+
+  if (!isJoinUsages || isImportJoin) return content
 
   let newContent = content
 
