@@ -8,11 +8,11 @@ function Main({text, className}) {
   const isActive = typeof text === "string"
 
   return (
-    <div className={join([className, isActive && classes.name, classes.body, isActive ? classes.active : classes["no-active"]])}  
+    <div className={join([className, isActive && classes.active, classes["body-wrapper"]])}  
        
          isActive={false}
-         aria-required={'asf'}>
-
+         data={{}} >
+        <Name className={join([className, classes.active, classes.name, classes.a1, classes.a2])}  data isActive={true} />
     </div>
   );
 }
