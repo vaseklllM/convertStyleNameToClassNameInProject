@@ -12,7 +12,7 @@ function Main({text, className}) {
          className={txt.join([className, isActive && classes.active])}
          isActive={false}
          data={{}} >
-        <Name styleName='name a1 a2' className={txt.join([className, classes.active])} data isActive={true} />
+        <Name styleName='name'  className={txt.join([className, classes.active])} data isActive={true} />
     </div>
   );
 }

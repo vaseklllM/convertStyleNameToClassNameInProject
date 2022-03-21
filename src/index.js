@@ -3,10 +3,11 @@ const fs = require('fs');
 const convertStyleNameInClassName = require('./convertStyleNameInClassName')
 
 const TEST_FOLDER_PATH = {
-  path: './project/',
-  outputPath: 'projectNew',
-  exclude: [/components/, /Name/]
+  path: './project-v1/',
+  outputPath: 'project-v1',
+  // exclude: [/components/, /Name/]
 }
+
 // const VSEVMESTE_FOLDER_PATH = {path: '../vv_new_front/src'}
 
 

@@ -2,7 +2,11 @@ const getLineInfoByIndex = require('../../utils/getLineInfoByIndex')
 const removeLineByIndex = require('../../utils/removeLineByIndex')
 
 module.exports = function removeImportUtilsTxt(content) {
-  const index = content.match(/txt/).index
+  const index = content.match(/txt/)?.index
+
+  if (!index) {
+    return content
+  }
 
   const lineInfo = getLineInfoByIndex({content, index})
 

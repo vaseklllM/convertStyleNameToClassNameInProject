@@ -21,8 +21,18 @@ module.exports = function renameStyleScssFile({path, content, outputPath}) {
     }
   })
 
+
   scssFilesContents.map(async (i) => {
+    if (folderPath === folderOutputPath) {
+      try {
+        fs.unlinkSync(i.filePath)
+      } catch (err) {
+        console.error(err)
+      }
+    }
+
     writeContent({
+
       path: `${folderOutputPath}\\${config.getScssFileName(i.fileName)}`,
       content: i.content
     })
