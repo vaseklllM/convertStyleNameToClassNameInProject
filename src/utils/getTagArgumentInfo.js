@@ -9,8 +9,12 @@ module.exports = function getTagArgumentInfo({argument, tag}) {
   const right = tag.substring(startContentIndex + 1, tag.length)
   const endContentIndex = right.search(symbolRight)
   const endIndex = endContentIndex + startContentIndex + 1
-  const content = tag.substring(startContentIndex + 1, endIndex)
+  let content = tag.substring(startContentIndex + 1, endIndex)
   const body = tag.substring(startIndex, endIndex + 1)
+
+  if (['\'', '\"'].includes(symbolLeft)) {
+    content = `${symbolLeft}${content}${symbolRight}`
+  }
 
   return {
     body,

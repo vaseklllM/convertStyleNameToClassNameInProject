@@ -8,7 +8,7 @@ function Main({text, className}) {
   const isItem = false
 
   return (
-    <div styleName={'body'} className={className}>
+    <div styleName={txt.join(['body', className])} className={className}>
 
     </div>
   );
