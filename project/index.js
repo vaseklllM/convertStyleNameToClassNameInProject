@@ -5,10 +5,10 @@ import {txt} from '@/utils'
 
 
 function Main({text, className}) {
-  const isItem = false
+  const isActive = typeof text === "string"
 
   return (
-    <div styleName={txt.join(['body', className])} className={className}>
+    <div styleName={txt.join(['body', isActive ? 'active': 'no-active'])} className={className}>
 
     </div>
   );

@@ -5,6 +5,7 @@ const {
 } = require('./convertStyleNameToClassName')
 
 module.exports = function getClassNameByNames(names) {
+  // const classNames = names.filter(i => i.type === 'className')
 
   const classes = names
     .filter(i => i.type === 'styleName')

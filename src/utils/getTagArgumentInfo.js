@@ -21,6 +21,8 @@ module.exports = function getTagArgumentInfo({argument, tag}) {
     content,
     startIndex,
     endIndex,
+    symbolLeft,
+    symbolRight
   }
 }
 
