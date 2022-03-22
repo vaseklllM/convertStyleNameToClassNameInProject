@@ -2,17 +2,20 @@ const dirTree = require("directory-tree");
 const fs = require('fs');
 const convertStyleNameInClassName = require('./convertStyleNameInClassName')
 
-const TEST_FOLDER_PATH = {
-  path: './project-v1/',
-  outputPath: 'project-v1',
-  // exclude: [/components/, /Name/]
-}
+// const TEST_FOLDER_PATH = {
+//   path: './project-v1/',
+//   outputPath: 'project-v1',
+//   // exclude: [/components/, /Name/]
+// }
 
-// const VSEVMESTE_FOLDER_PATH = {path: '../vv_new_front/src'}
+const VSEVMESTE_FOLDER_PATH = {
+  path: '..\\vv_new_front\\fixStyleNameTextSpace',
+  // outputPath: '..\\vv_new_front\\fixStyleNameTextSpace'
+}
 
 
 openFiles({
-  folder: TEST_FOLDER_PATH,
+  folder: VSEVMESTE_FOLDER_PATH,
   types: ['js'],
   callback: getFileContent
 })
@@ -61,6 +64,30 @@ function getFileContent(path, outputPath) {
 
 function convertOutputPath({path, outputPath}) {
   const pathArr = path.split('\\')
-  pathArr[0] = outputPath
-  return pathArr.join('\\')
+  // const outputPathArr = outputPath.split('\\')
+
+  if (!outputPath) return path
+
+  if (outputPath.search(/\.\./) === -1) {
+    pathArr[0] = outputPath
+    return pathArr.join('\\')
+  }
+  //
+  // let newPath = []
+  //
+  // pathArr.forEach((i, idx) => {
+  //   if (idx >= outputPathArr.length) {
+  //
+  //   }
+  // })
+  //
+  // console.log(pathArr)
+  // console.log(outputPathArr)
+
+
+  // console.log('path -> ', path)
+  // console.log('outputPath -> ', outputPath)
+  // console.log('newOutputPath -> ', newOutputPath)
+
+  return path
 }
