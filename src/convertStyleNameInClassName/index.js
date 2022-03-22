@@ -8,8 +8,9 @@ const convertHybridStyleNameAndClassName = require('./tagConverters/convertHybri
 
 module.exports = function convertStyleNameInClassName({path, content, outputPath}) {
   const isScss = content.search('.scss') !== -1
+  const styleName = content.search(/styleName=/) !== -1
 
-  if (!isScss) {
+  if (!isScss || !styleName) {
     return
   }
 
