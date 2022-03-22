@@ -6,6 +6,7 @@ module.exports = function getTagArgumentInfo({argument, tag}) {
   const symbolLeft = tag[startContentIndex]
   const symbolRight = getSymbolRight(symbolLeft)
 
+
   const right = tag.substring(startContentIndex + 1, tag.length)
   const endContentIndex = right.search(symbolRight)
   const endIndex = endContentIndex + startContentIndex + 1

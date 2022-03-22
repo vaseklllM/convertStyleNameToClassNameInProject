@@ -1,4 +1,5 @@
 const getClassNameByNames = require('../getClassNameByNames')
+const getTagArgumentInfo = require("../../utils/getTagArgumentInfo");
 
 module.exports = function convertAttributeValue(tag) {
   /** txt.join */
@@ -17,26 +18,27 @@ module.exports = function convertAttributeValue(tag) {
   }
 
 
-  const defAttributeInfo = tag.match(/className=("|'|\{)([^<]+)("|'|\})/)
+  const defAttributeInfo = tag.match(/className=("|'|\{)/)
 
   if (defAttributeInfo) {
-    const namesLength = defAttributeInfo[2].length
+    const classNameInfo = getTagArgumentInfo({tag, argument: 'className'})
+
+    const left = tag.substring(0, classNameInfo.startIndex + 10)
+    const right = tag.substring(classNameInfo.endIndex + 10 + 2, tag.length)
 
 
-    const left = tag.substring(0, defAttributeInfo.index + 10)
-    const right = tag.substring(defAttributeInfo.index + 10 + namesLength + 2, tag.length)
-
-    if (['&&', "||", '?', ":"].some(i => defAttributeInfo[2].includes(i))) {
+    if (['&&', "||", '?', ":"].some(i => classNameInfo.content.includes(i))) {
       const className = getClassNameByNames(
         [{
-          content: defAttributeInfo[2],
+          content: classNameInfo.content,
           type: 'styleName'
         }])
 
       return `${left}${className}${right}`
     } else {
-      const names = defAttributeInfo[2].trim().split(' ')
+      const names = classNameInfo.content.trim().split(' ')
       const className = getClassNameByNames(names.map(name => ({content: name, type: 'styleName'})))
+
       return `${left}${className}${right}`
     }
   }

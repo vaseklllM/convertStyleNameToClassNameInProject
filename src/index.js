@@ -8,10 +8,10 @@ const TEST_FOLDER_PATH = {
   exclude: [/components/, /Name/]
 }
 
-// const VSEVMESTE_FOLDER_PATH = {
-//   path: '..\\vv_new_front\\fixStyleNameTextSpace',
-//   // outputPath: '..\\vv_new_front\\fixStyleNameTextSpace'
-// }
+const VSEVMESTE_FOLDER_PATH = {
+  path: '..\\vv_new_front\\fixStyleNameTextSpace',
+  // outputPath: '..\\vv_new_front\\fixStyleNameTextSpace'
+}
 
 
 openFiles({
