@@ -1,7 +1,7 @@
 import React from 'react';
 import { txt } from "../../../utils"
-import classes from "./style.scss"
 import Name from "./Name";
+import classes from "./style.scss"
 
 
 function Main({text, className}) {
