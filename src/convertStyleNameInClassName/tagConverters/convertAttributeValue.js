@@ -6,15 +6,13 @@ module.exports = function convertAttributeValue(tag) {
   const txtJoinAttributeInfo = tag.match(/className={txt.join\(\[([^<]+)\]\)}/)
 
   if (txtJoinAttributeInfo) {
-    const namesLength = txtJoinAttributeInfo[1].length
-    const names = txtJoinAttributeInfo[1].split(',').map(i => i.trim()).filter(i => i)
+    const classNameInfo = getTagArgumentInfo({tag, argument: 'className'})
+    const tagContent = classNameInfo.content.substring(10, classNameInfo.content.length - 2)
+    const names = tagContent.split(',').map(i => i.trim()).filter(i => i)
 
     const className = getClassNameByNames(names.map(name => ({content: name, type: 'styleName'})))
 
-    const left = tag.substring(0, txtJoinAttributeInfo.index + 10)
-    const right = tag.substring(txtJoinAttributeInfo.index + 24 + namesLength, tag.length)
-
-    return `${left}${className}${right}`
+    return tag.replace(classNameInfo.body, `className=${className}`)
   }
 
 

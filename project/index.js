@@ -8,10 +8,11 @@ function Main({text, className}) {
   const isActive = typeof text === "string"
 
   return (
-    <div  styleName="arrow"
+    <div  styleName={txt.join(['arrow', isActive  ? 'active': 'no-active'])}
           direction={showAnswer ? "up" : "down"}
           color="blue"
-          type="dropDown"
+          className={className}
+          type={fn(["dropDown"])}
     >
     </div>
   );
