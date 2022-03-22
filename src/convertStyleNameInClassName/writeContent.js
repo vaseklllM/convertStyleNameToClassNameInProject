@@ -10,7 +10,7 @@ module.exports = function writeContent({path, content}) {
 
     fs.writeFileSync(path, content)
 
-    // console.log(`--> ${path} ✓`)
+    console.log(`--> ${path} ✓`)
   } catch (err) {
     console.log(err)
   }

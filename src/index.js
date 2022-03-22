@@ -15,7 +15,7 @@ const VSEVMESTE_FOLDER_PATH = {
 
 
 openFiles({
-  folder: TEST_FOLDER_PATH,
+  folder: VSEVMESTE_FOLDER_PATH,
   types: ['js'],
   callback: getFileContent
 })
