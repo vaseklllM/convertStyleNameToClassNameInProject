@@ -6,8 +6,6 @@ module.exports = function addJoin(content) {
   const isJoinUsages = content.search(/join\(\[/) !== -1
   const isImportJoin = content.search(/import join from "@\/utils\/join"/) !== -1
 
-  console.log(isImportJoin, isJoinUsages)
-
   if (!isJoinUsages || isImportJoin) return content
 
   let newContent = content
