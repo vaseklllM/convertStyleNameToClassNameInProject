@@ -1,7 +1,7 @@
 const fs = require('fs');
 const getScssFilePaths = require('./getScssFilePaths')
 const config = require('../config')
-const writeContent = require('../writeContent')
+const writeContent = require('../../utils/writeContent')
 
 module.exports = function renameStyleScssFile({path, content, outputPath}) {
   const isScss = content.search(/.scss/) !== -1

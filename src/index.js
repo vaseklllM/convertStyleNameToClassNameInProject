@@ -2,6 +2,7 @@ const dirTree = require("directory-tree");
 const fs = require('fs');
 const convertStyleNameInClassName = require('./convertStyleNameInClassName')
 const convertJsToJsx = require('./convertJsToJsx')
+const convertExportDefaultTypes = require('./convertExportDefaultTypes')
 
 const TEST_FOLDER_PATH = {
   path: './project/',
@@ -10,7 +11,7 @@ const TEST_FOLDER_PATH = {
 }
 
 const VSEVMESTE_FOLDER_PATH = {
-  path: '..\\vv_new_front\\src\\components\\AddPhoto',
+  path: '..\\vv_new_front\\src',
 
 
   // path: '..\\vv_new_front\\fixStyleNameTextSpace',
@@ -60,7 +61,8 @@ function openFiles({folder, types = [], callback}) {
 function getFileContent(path, outputPath) {
   try {
     const data = fs.readFileSync(path, 'utf8')
-    convertJsToJsx({path, content: data})
+    convertExportDefaultTypes({path, content: data})
+    // convertJsToJsx({path, content: data})
     // convertStyleNameInClassName({path, content: data, outputPath})
   } catch (err) {
     console.error(err)

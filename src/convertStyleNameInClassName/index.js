@@ -1,6 +1,6 @@
 const convertOnlyStyleName = require('./tagConverters/convertOnlyStyleName')
 const renameStyleScssFile = require('./renameStyleScssFile')
-const writeContent = require('./writeContent')
+const writeContent = require('../utils/writeContent')
 const addJoin = require('./addJoin')
 const convertImportScss = require('./convertImportScss')
 const convertHybridStyleNameAndClassName = require('./tagConverters/convertHybridStyleNameAndClassName')
